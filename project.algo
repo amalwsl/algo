@@ -1,0 +1,28 @@
+ALGORITHM project
+VAR
+    i,nbw,v : INTEGER;
+    ch: STRING;
+BEGIN
+    
+    WHILE (ch[ch.length]<>'.') DO
+        read(ch); 
+    END_WHILE
+    i:=1;
+    nbw:=0;
+    v:=0;
+    WHILE (ch[i]<>'.' ) DO
+        i:=i+1;
+        IF (ch[i]=' ') THEN
+            nbw:=nbw+1;
+        ELSE_IF (Uppercase(ch[i]) in ['A','I','E','O','U','Y'] ) THEN
+         v:=v+1;
+        END_IF
+
+
+    END_WHILE
+
+    Write('nombre des mots : ',nbw);
+    Write('longeur de la phrase :',i);
+    Write('nombre des voyelles :', v);
+
+END
