@@ -1,0 +1,127 @@
+//Problem 1
+//Hash Tables 
+
+ALGORITHM  sum_of_all_distinct_elements_with_Hash_Tables
+VAR
+    tab1,tab2 : ARRAY_OF INTEGER[5];
+    tab_hash:HASH_TABLE<INTEGER,INTEGER>
+    i,j,count : INTEGER ;
+    sum: INTEGER := 0;
+BEGIN
+   count:=1;
+     FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+       IF(tab_hash.lookup(tab1[i])=TRUE) THEN
+       tab_hash.insert(tab1[i],count+1)
+       ELSE
+       tab_hash.insert(tab1[i],1)
+       END_IF
+    END_FOR
+   FOR j FROM 0 TO tab2.length-1 STEP 1  DO
+       IF(tab_hash.lookup(tab2[j])=TRUE) THEN
+       tab_hash.insert(tab2[j],count+1)
+       ELSE
+       tab_hash.insert(tab2[j],1)
+       END_IF
+    END_FOR
+   FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+   FOR j FROM 0 TO tab2.length-1 STEP 1  DO
+         IF(tab_hash.get(tab1[i])=1 AND tab_hash.get(tab2[j])=1) THEN
+         sum:=sum+tab1[i]+tab2[j]
+         END_IF
+   END_FOR
+   END_FOR
+END
+
+
+// 2nd solution with multidimensional array 
+
+ALGORITHM  sum_of_all_distinct_elements_with_Array
+VAR
+    tab1,tab2 : ARRAY_OF INTEGER[10];
+    i,j,sum : INTEGER;
+     verif:BOOLEAN;
+BEGIN
+    sum:=0;
+    FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+       verif:=false
+     FOR j FROM 0 TO tab2.length-1 STEP 1  DO
+       IF (tab1[i]==tab2[j]) THEN
+       verif:=TRUE
+       END_IF
+       IF (verif=false) THEN
+         sum := sum + tab1[i];
+       END_IF
+      
+       
+     END_FOR
+    END_FOR
+       FOR i FROM 0 TO tab2.length-1 STEP 1  DO
+       verif:=false
+     FOR j FROM 0 TO tab1.length-1 STEP 1  DO
+       IF (tab2[i]==tab1[j]) THEN
+       verif:=TRUE
+       END_IF
+       IF (verif=false) THEN
+         sum := sum + tab2[i];
+       END_IF
+      
+       
+     END_FOR
+    END_FOR
+END
+
+// Problem 2 
+// Hash Tables 
+
+
+ALGORITHM sum_of_overlapping_elements_with_Hash_Tables
+VAR
+    tab1,tab2:ARRAY_OF_INTEGER[4];
+    tab_hash:HASH_TABLE<INTEGER,INTEGER>
+    i:INTEGER;
+    sum:INTEGER:=0;
+BEGIN
+   FOR i FROM 0 TO tab11.length-1 STEP 1  DO
+       IF(tab_hash.lookup(tab1[i])=TRUE) THEN
+       hash.insert(tab1[i],2)
+       ELSE
+       hash.insert(tab1[i],1)
+END_IF
+ END_FOR
+   FOR i FROM 0 TO tab2.length-1 STEP 1  DO
+       IF(hash.lookup(tab2[i])=TRUE) THEN
+       tab_hash.insert(tab2[i],2)
+       ELSE
+       tab_hash.insert(tab2[i],1)
+END_IF
+ END_FOR
+FOR i FROM 0 TO tab1tab.length-1 STEP 1  DO
+         IF(tab_hash.get(tab1[i])=2) THEN
+         sum:=sum + tab1[i]*2
+         END_IF
+END_FORtab_hash
+
+END
+
+
+
+//2nd solution with multidimensional array 
+
+
+ALGORITHM  sum_of_overlapping_elements_with_array
+VAR
+    tab1,tab2 : ARRAY_OF INTEGER[8];
+    i,j,sum : INTEGER;
+
+BEGIN
+    sum:=0;
+    FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+     FOR j FROM 0 TO tab2.length-1 STEP 1  DO
+       IF (tab1[i]==tab2[j]) THEN    
+          sum := sum + tab1[i]*2;
+       END_IF
+     END_FOR
+    END_FOR
+END
+
+
