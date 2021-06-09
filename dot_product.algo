@@ -1,0 +1,44 @@
+PROCEDURE dot_product(v1,v2 : ARRAY_OF INTEGER[];ps : INTEGER)
+VAR
+    i,j : INTEGER
+BEGIN
+    FOR i FROM 1 TO 2 STEP 1  DO
+        FOR j FROM 1 TO 2 STEP 1  DO
+            ps:=v1[i]*v2[i] + v1[j]*v2[j]*j
+        END_FOR
+        
+    END_FOR
+END
+
+FUNCTION dot_product(v1,v2 : ARRAY_OF INTEGER[]) : INTEGER
+VAR
+    i,j : INTEGER
+BEGIN
+    FOR i FROM 1 TO n STEP 1  DO
+        FOR j FROM 1 TO n STEP 1  DO
+            ps:=v1[i]*v2[i] + v1[j]*v2[j]*j
+        END_FOR
+        
+    RETURN ps ;
+END
+
+
+ALGORITHM Dot_Product_project
+VAR
+    v1,v2 : ARRAY_OF INTEGER[2];
+    ps:INTEGER
+
+BEGIN
+    read(v1.[1]);
+    read(v1.[2]);
+    read(v2.[1]);
+    read(v2.[2]);
+
+    dot_product(v1,v2,ps);
+    IF (ps=0) THEN
+        Write('orthogonal')
+    ELSE
+        Write('not orthogonal')
+    END_IF
+
+END
